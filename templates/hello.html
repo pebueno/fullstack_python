@@ -1,6 +1,15 @@
 <html>
-    <head></head>
-    <body>
-        <h1>Hello world</h1>
-    </body>
+  <head></head>
+  <body>
+    <h1 id="title">
+      <span>Hello</span>
+    </h1>
+    {% for entry in entries %}
+    <h2>{{ entry.title }}</h2>
+    <p>{{ entry.wording }}</p>
+    {% endfor %}
+
+    <p>A paragraph of text.</p>
+    <img src="http://pudim.com.br/pudim.jpg" />
+  </body>
 </html>

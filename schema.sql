@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS entries;
+CREATE TABLE entries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title STRING NOT NULL,
+    wording STRING NOT NULL,
+    created_at DATETIME DEFAULT NOW
+)
