@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+{% if session.logged %}
+  <form action="{{ url_for('insert_entries') }}" method="POST" class="ins_entry">
+    <dl>
+      <dt> Title:
+        <dd><input type="text" name="title" size="30"></dd>
+      </dt> 
+      <dt> Wording:
+        <dd><textarea name="wording" rows="5" cols="40"></textarea></dd>
+        <dd><input type="submit" value="publish"></dd>
+      </dt>
+    </dl>
+  </form>
+{% endif %}
+<ul class="entries">
+  {% for entry in entries %}
+  <li>
+    <h2>{{ entry.title }}</h2>
+    {{ entry.wording }}
+  </li>
+  {% else %}
+  <li><em>Oops unfortunately you don't have any entry yet!</em></li>
+  {% endfor %}
+</ul>
+{% endblock %}

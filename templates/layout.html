@@ -1,19 +1,19 @@
 <html>
     <head>
-
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     </head>
     <body>
         <div class="page">
-            <h2>My Blog</h2>
+            <h1>My Blog</h2>
             <div class="metanav">
                 {% if not session.logged %}
-                <a href="">login</a>
+                <a href="{{ url_for('login') }}">login</a>
                 {% else %}
-                <a href="">logout</a>
+                <a href="{{ url_for('logout') }}">logout</a>
                 {% endif %}
             </div>
             {% for message in get_flashed_messages() %}
-            <div class="flash"> {{ messages }} </div>
+            <div class="flash"> {{ message }} </div>
             {% endfor %}
             {% block body %}{% endblock %}
         </div>
